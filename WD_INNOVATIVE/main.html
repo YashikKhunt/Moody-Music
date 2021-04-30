@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Moody Music</title>
+	<script type="text/javascript" src="/eel.js"></script>
+	<link rel="stylesheet" type="text/css" href="header.css">
+	<link rel="stylesheet" type="text/css" href="background.css">
+	<link rel="stylesheet" type="text/css" href="player.css">
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<header id="navbar">
+		<div id="logo">
+			<a href="#backgroung"><img src="logo.png" alt="Moody Music"></a>
+			<a href="#backgroung">
+				<h3>Moody Music</h3>
+			</a>
+		</div>
+		<ul>
+			<li class="items"><a href="#backgroung">Home</a></li>
+			<li class="items"><a href="#main_sec">SongList</a></li>
+			<li class="items"><a href="#about">About</a></li>
+		</ul>
+		<div id="mod">mode : Queue-mode <input type="radio" name="mode" checked="checked" onclick="setmod(this)"
+				value="1"> &nbsp;&nbsp;Emotion-mode <input type="radio" name="mode" onclick="setmod(this)" value="2">
+			&nbsp;&nbsp;Random-mode
+			<input type="radio" name="mode" onclick="setmod(this)" value="3">
+		</div>
+	</header>
+
+	<section class="background" id="backgroung">
+		<div>
+			<h1 class="ml2 headline">Moody Music</h1>
+		</div>
+		<div class="cover_svg"> </div>
+	</section>
+	<div class="line">
+		<hr id="1s" class="line_wh">
+	</div>
+
+	<section id="main_sec" class="main_sec">
+		<!-- all songs card are available using js is -->
+		<h2>SongList</h2>
+		<br>
+		<hr style="width: 80%; margin-left: 0px;">
+		<div id="sound_card"></div>
+
+		<div id="queue"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Queue<input type="button"
+				id="next" onclick="nextsong()">
+			<hr>
+		</div>
+
+		<div id="third">
+			<div id="emoji"></div>
+			<div id="xyz">
+				&nbsp;&nbsp;&nbsp;Playing :&nbsp;&nbsp;
+				<label id="sname" align="center">none</label>
+			</div>
+
+			<audio controls id="main_slider">
+				<source id="sel" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+
+			<script>
+				document.getElementById("main_slider").onended = function () {
+					if (mod == 1)
+						next_in_Q();
+					else if (mod == 2) {
+						getTime();
+					}
+					else
+						rand_play();
+
+				};
+			</script>
+		</div>
+	</section>
+
+	<section id="about">
+		<h2>About</h2>
+		<hr>
+		<div id="card1">
+			<div id="photo1">
+				<img src="/WD_INNOVATIVE/images/yashik.jpg" alt="Yashik Khunt">
+			</div>
+			<div class="about_data">
+				<h3>Yashik khunt</h3>
+				<hr>
+				<p>My self <span> Yashik Khunt</span> who done the Designing part of the website. <br> Using HTML, CSS,
+					JavaScript.</p>
+			</div>
+
+		</div>
+		<div id="card2">
+			<div id="photo2">
+				<img src="/WD_INNOVATIVE/images/sahil.jpg" alt="Yashik Khunt">
+			</div>
+			<div class="about_data">
+				<h3>Sahil Lathiya</h3>
+				<hr>
+				<p>My self <span> Sahil Lathiya</span> who done the Backend Fac detection part. <br> Using Machine
+					Learning <span>Fisherface algorithm </span>. </p>
+			</div>
+		</div>
+		<div id="card3">
+			<div id="photo3">
+				<img src="/WD_INNOVATIVE/images/khanjan.jpg" alt="Yashik Khunt">
+			</div>
+			<div class="about_data">
+				<h3>Khanjan Joshi</h3>
+				<hr>
+				<p>My self <span> Khanjan Joshi</span> who done Music player part. <br> Using HTML, CSS, JavaScript.</p>
+			</div>
+		</div>
+	</section>
+	<script src="code.js" type="text/javascript"></script>
+	<script src="style.js" type="text/javascript"></script>
+</body>
+
+</html>
